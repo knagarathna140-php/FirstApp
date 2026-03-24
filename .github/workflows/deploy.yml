@@ -24,6 +24,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ubuntu
           key: ${{ secrets.SSH_KEY }}
+          por: 22
           script: |
             cd /var/www/html/FirstApp
             git pull origin main
