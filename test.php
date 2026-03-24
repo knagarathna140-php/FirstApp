@@ -1,3 +1,3 @@
 <?php
-    echo "hiiii";
+    echo "hiiii Nagarathna, Wel come to AWS..";
 ?>
