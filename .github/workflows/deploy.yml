@@ -10,20 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Debug SSH Key
-        run: |
-          if [ -z "${{ secrets.SSH_KEY }}" ]; then
-            echo "SSH_KEY is EMPTY"
-          else
-            echo "SSH_KEY is PRESENT"
-          fi
-
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.HOST }}
           username: ubuntu
-          key: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
             cd /var/www/html/FirstApp
