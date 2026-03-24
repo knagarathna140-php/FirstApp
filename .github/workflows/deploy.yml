@@ -1,21 +1,7 @@
-name: Deploy PHP App
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to EC2 via SSH
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ubuntu
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd /var/www/html/FirstApp
-            git pull origin main
+- name: Debug Key
+  run: |
+    if [ -z "${{ secrets.SSH_KEY }}" ]; then
+      echo "SSH_KEY is EMPTY ❌"
+    else
+      echo "SSH_KEY is PRESENT ✅"
+    fi
