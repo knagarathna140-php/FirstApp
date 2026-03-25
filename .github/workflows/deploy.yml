@@ -16,7 +16,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          port: 22
+          port: 22 
           script: |
             cd /var/www/FirstApp
             git pull origin main
